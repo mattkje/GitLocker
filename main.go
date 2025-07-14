@@ -15,6 +15,7 @@ func main() {
 	auth := &handlers.AuthHandler{DB: db}
 	http.HandleFunc("/api/register", auth.Register)
 	http.HandleFunc("/api/login", auth.Login)
+	http.HandleFunc("/api/create-repo", handlers.CreateRepo)
 
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fs)
