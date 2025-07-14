@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitLocker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f6fa; margin: 0; }
+        header { background: #24292e; color: #fff; padding: 1em; }
+        nav { margin: 1em 0; }
+        nav a { color: #0366d6; margin-right: 1em; text-decoration: none; }
+        .container { max-width: 900px; margin: 2em auto; background: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
+        h1 { margin-top: 0; }
+        .repo-list { list-style: none; padding: 0; }
+        .repo-list li { padding: 1em 0; border-bottom: 1px solid #eee; }
+        .repo-list li:last-child { border-bottom: none; }
+        .repo-name { font-weight: bold; color: #24292e; }
+        .repo-desc { color: #586069; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GitLocker</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="#">Repositories</a>
+            <a href="#">Explore</a>
+            <a href="#">Profile</a>
+        </nav>
+        <h2>Repositories</h2>
+        <ul class="repo-list">
+            <li>
+                <span class="repo-name">awesome-project</span><br>
+                <span class="repo-desc">A cool project for demonstration.</span>
+            </li>
+            <li>
+                <span class="repo-name">gitea-clone</span><br>
+                <span class="repo-desc">Minimal Gitea-like repository manager.</span>
+            </li>
+            <li>
+                <span class="repo-name">hello-world</span><br>
+                <span class="repo-desc">Simple Hello World example.</span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
