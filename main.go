@@ -17,7 +17,7 @@ func main() {
 	http.HandleFunc("/api/login", auth.Login)
 	http.HandleFunc("/api/create-repo", handlers.CreateRepo)
 
-	fs := http.FileServer(http.Dir("./static"))
+	fs := http.FileServer(http.Dir("./frontend/dist"))
 	http.Handle("/", fs)
 
 	log.Println("Server started at http://localhost:8080")

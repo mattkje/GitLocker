@@ -2,18 +2,40 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"os"
 )
 
+type DBConfig struct {
+	User     string `json:"db_user"`
+	Password string `json:"db_password"`
+	Host     string `json:"db_host"`
+	Port     string `json:"db_port"`
+	Name     string `json:"db_name"`
+}
+
+func LoadConfig(path string) (*DBConfig, error) {
+	file, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	var cfg DBConfig
+	err = json.NewDecoder(file).Decode(&cfg)
+	return &cfg, err
+}
+
 func InitDB() (*sql.DB, error) {
-	// Example: root:password@tcp(127.0.0.1:3306)/git_system
+	cfg, err := LoadConfig("config.json")
+	if err != nil {
+		return nil, err
+	}
+
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true",
-		"root",       // username
-		"Ma10erkul",  // password
-		"127.0.0.1",  // host
-		"3306",       // port
-		"git_system", // database name
+		cfg.User, cfg.Password, cfg.Host, cfg.Port, cfg.Name,
 	)
 
 	db, err := sql.Open("mysql", dsn)
@@ -22,11 +44,11 @@ func InitDB() (*sql.DB, error) {
 	}
 
 	_, err = db.Exec(`
-        CREATE TABLE IF NOT EXISTS users (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            username VARCHAR(255) NOT NULL UNIQUE,
-            password TEXT NOT NULL
-        )
-    `)
+		        CREATE TABLE IF NOT EXISTS users (
+		            id INT AUTO_INCREMENT PRIMARY KEY,
+		            username VARCHAR(255) NOT NULL UNIQUE,
+		            password TEXT NOT NULL
+		        )
+		    `)
 	return db, err
 }
