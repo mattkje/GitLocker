@@ -60,6 +60,7 @@ function logout() {
   font-weight: 700;
   font-size: 1.2rem;
   user-select: none;
+  color: var(--heading);
 }
 
 nav {
@@ -72,7 +73,7 @@ nav {
 nav .tab {
   background: none;
   border: none;
-  color: #cdd9e5;
+  color: var(--text);
   font-size: 0.9rem;
   cursor: pointer;
   padding: 5px 5px;
@@ -84,8 +85,8 @@ nav .tab {
 
 nav .tab.router-link-active,
 nav .tab:hover {
-  background: #0366d6;
-  color: white;
+  background: var(--border);
+  color: var(--heading);
 }
 
 .logoImg {
@@ -99,10 +100,10 @@ nav .tab:hover {
 }
 
 header {
-  background: #24292e;
-  color: white;
+  background: var(--background-card);
+  color: var(--heading);
   padding: 5px 20px;
-  border-bottom: 1px solid #cdd9e5;
+  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -116,14 +117,14 @@ header {
   border: none;
   font-size: 1.6rem;
   cursor: pointer;
-  color: white;
+  color: var(--text);
   padding: 5px 10px;
   border-radius: 6px;
   transition: background-color 0.2s ease;
 }
 
 #createBtn:hover {
-  background: #0366d6;
+  color: var(--accent);
 }
 
 .profile {
@@ -137,29 +138,29 @@ header {
   height: 32px;
   border-radius: 50%;
   cursor: pointer;
-  border: 2px solid #0366d6;
+  border: 2px solid var(--accent);
   transition: box-shadow 0.2s;
 }
 
 .avatar:hover {
-  box-shadow: 0 0 0 2px #0366d6;
+  box-shadow: 0 0 0 2px var(--accent);
 }
 
 .loginBtn {
-  background: #2d8cf0;
-  color: #fff;
-  border: none;
+  background: none;
+  color: var(--text);
+  border: 0.5px solid var(--text);
   border-radius: 6px;
-  padding: 6px 16px;
-  font-size: 1rem;
+  padding: 6px 14px;
+  font-size: 0.8rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: border-color 0.2s, color 0.2s;
 }
 
 .loginBtn:hover {
-  background: #1a6fb3;
+  border-color: var(--accent-hover);
+  color: var(--accent-hover);
 }
-
 .left-content {
   display: flex;
   align-items: center;

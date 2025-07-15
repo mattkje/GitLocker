@@ -2,9 +2,9 @@
   <img src="assets/logo.png" alt="GitLocker Logo" width="180"/>
 </p>
 
-<h1 align="center">GitLocker</h1>
+<h1 align="center">GitBay</h1>
 
-*GitLocker* is a minimal Gitea-like repository manager built with Go.
+*GitBay* is a minimal Gitea-like repository manager built with Go.
 
 ---
 
@@ -12,6 +12,15 @@
 ## Note
 Very early stage, not much here now.
 
+## Technologies
+
+- Go (backend)
+- Vue.js (frontend)
+- TypeScript & JavaScript
+- npm
+- Git
+
 ## Screenshots
 
-![Screenshot 1](assets/screenshots/screenshot1.png)
+![Screenshot 1](assets/screenshots/ss1.png)
+![Screenshot 1](assets/screenshots/ss2.png)
