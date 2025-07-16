@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" alt="GitLocker Logo" width="180"/>
+  <img src="assets/gitbay.png" alt="GitLocker Logo" width="180"/>
 </p>
 
 <h1 align="center">GitBay</h1>
