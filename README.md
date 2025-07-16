@@ -22,5 +22,5 @@ Very early stage, not much here now.
 
 ## Screenshots
 
-![Screenshot 1](assets/screenshots/ss1.png)
+![Screenshot 1](assets/screenshots/ss3.png)
 ![Screenshot 1](assets/screenshots/ss2.png)

@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from "vue";
-import CreateRepo from "@/components/CreateRepo.vue";
+import CreateRepo from "@/components/modal/CreateRepo.vue";
 
 // Mock user state; replace with real auth logic
 const user = ref(null); // or { name: "Matt", avatar: "/avatar.png" }

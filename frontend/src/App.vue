@@ -1,6 +1,5 @@
 <script setup>
 import Menubar from './components/Menubar.vue'
-import CreateRepo from './components/CreateRepo.vue'
 </script>
 
 <template>

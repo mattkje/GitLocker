@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import {ref, computed, onMounted} from 'vue'
 
-interface Repo {
-  name: string
-  description: string
-  updatedAt: string
+async function getRepos() {
+  try {
+    const response = await fetch('/api/repos')
+    if (!response.ok) throw new Error('Failed to fetch repositories')
+    return await response.json()
+  } catch (error) {
+    console.error('Error fetching repositories:', error)
+    return []
+  }
 }
 
-const repos = ref<Repo[]>([
-  {
-    name: 'gitbay-core',
-    description: 'Core backend for GitBay',
-    updatedAt: '2024-06-01',
-  },
-  {
-    name: 'gitbay-frontend',
-    description: 'Vue.js frontend for GitBay',
-    updatedAt: '2024-05-28',
-  },
-  {
-    name: 'gitbay-utils',
-    description: 'Utility scripts and helpers',
-    updatedAt: '2024-05-20',
-  },
-])
+const repos = ref<{ name: string }[]>([])
+
+
+onMounted(
+  () => {
+    getRepos().then(data => {
+      repos.value = data.map((repo: string) => ({
+        name: repo.endsWith('.git') ? repo.slice(0, -4) : repo
+      }))
+    })
+  }
+)
 
 const search = ref('')
 
@@ -48,9 +48,8 @@ const filteredRepos = computed(() =>
       <li v-for="repo in filteredRepos" :key="repo.name" class="repo-item">
         <div class="repo-header">
           <a class="repo-name" href="#">{{ repo.name }}</a>
-          <span class="repo-updated">Updated on {{ repo.updatedAt }}</span>
+          <span class="repo-updated">Updated on </span>
         </div>
-        <div class="repo-desc">{{ repo.description }}</div>
       </li>
     </ul>
   </div>
